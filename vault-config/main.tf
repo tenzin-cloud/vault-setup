@@ -23,6 +23,11 @@ module "vault_secrets_kv" {
   mount_path = "secrets"
 }
 
+module "vault_secrets_pki" {
+  source     = "./modules/vault-secrets-pki"
+  mount_path = "pki"
+}
+
 module "vault_auth_userpass" {
   source = "./modules/vault-auth-userpass"
   vault_users = {
