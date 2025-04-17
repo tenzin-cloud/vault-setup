@@ -1,0 +1,23 @@
+name: Unseal Vault
+
+on:
+  workflow_dispatch:
+
+env:
+  VAULT_ADDR: https://vault.tenzin.cloud
+
+jobs:
+  unseal-vault:
+    runs-on: [ ubuntu-latest ]
+    steps:
+      - name: Unseal Vault
+        run: |
+          RESULT=$(curl --output unseal.out --write-out "%{http_code}" --silent --fail --max-time 4 --request PUT --data '{"key": "${{ secrets.VAULT_UNSEAL_KEY }}"}' ${{ env.VAULT_ADDR }}/v1/sys/unseal)
+          if [[ $RESULT == "200" ]]
+          then
+            cat unseal.out | jq .
+            exit 0
+          else
+            cat unseal.out
+            exit 1
+          fi
