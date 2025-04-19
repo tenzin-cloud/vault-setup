@@ -21,7 +21,7 @@ resource "vault_pki_secret_backend_root_cert" "private_ca" {
   type        = "internal"
   common_name = "private-ca"
   ttl         = 315360000
-  issuer_name = "local-ca"
+  issuer_name = "private-ca"
 }
 
 resource "vault_pki_secret_backend_issuer" "private_ca" {
