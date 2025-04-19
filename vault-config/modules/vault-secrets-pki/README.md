@@ -1,5 +1,5 @@
 # README
-A Terraform module to setup the Vault PKI secrets engine.  See general guide here: <https://developer.hashicorp.com/vault/tutorials/pki/pki-engine>
+A Terraform module to setup the Vault PKI secrets engine for a private CA for use in my home lab.  See general guide here: <https://developer.hashicorp.com/vault/tutorials/pki/pki-engine>
 
 
 <!-- BEGIN_TF_DOCS -->
