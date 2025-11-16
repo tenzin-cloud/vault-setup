@@ -4,8 +4,8 @@ set -x
 set -e
 
 ## install os packages
-sudo apt-get update
-sudo apt-get install -y git python3-venv unzip
+apt-get update
+apt-get install -y git python3-venv unzip
 
 ## setup python venv
 if [[ ! -d ~/.venv ]]
@@ -25,7 +25,7 @@ cd tools
 ./docker.yaml
 
 ## add ubuntu user to the docker group
-sudo usermod -aG docker ubuntu
+usermod -aG docker ubuntu
 
 ## change ubuntu user's shell to bash
 chsh --shell /usr/bin/bash ubuntu
