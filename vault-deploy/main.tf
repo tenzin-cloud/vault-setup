@@ -2,7 +2,7 @@ terraform {
   required_providers {
     docker = {
       source  = "kreuzwerker/docker"
-      version = "3.1.2"
+      version = "~>3.0"
     }
   }
 
@@ -15,16 +15,16 @@ terraform {
 }
 
 provider "docker" {
-  host     = "ssh://pi@raspberrypi.local:22"
+  host     = "ssh://ubuntu@vault-0.local:22"
   ssh_opts = ["-o", "StrictHostKeyChecking=no", "-o", "UserKnownHostsFile=/dev/null"]
 }
 
 resource "docker_image" "cloudflared" {
-  name = "cloudflare/cloudflared:2025.4.0"
+  name = "cloudflare/cloudflared:2025.11.1"
 }
 
 resource "docker_image" "vault" {
-  name = "hashicorp/vault:1.19.0"
+  name = "hashicorp/vault:1.21"
 }
 
 resource "docker_network" "service" {
